@@ -1,13 +1,13 @@
 <template>
-  <div class="rhymesaurus">
+  <div class="rhyme-adjective">
     <p>
       <router-link v-bind:to="'rhyme-adjective'">Rhyme Adjective</router-link>
-      &#47;
+      &bull;
       <router-link v-bind:to="'/'">Rhymesaurus</router-link>
     </p>
     
     <form v-on:submit.prevent="findWords">
-      <p>Find rhymes for <input type="text" v-model="rhyme"> related to <input type="text" v-model="phrase"> <button type="submit">Search</button></p>
+      <p>Find rhymes for <input type="text" v-model="rhyme"> that are are adjectives used with <input type="text" v-model="phrase"> <button type="submit">Search</button></p>
     </form>
 
     <ul v-if="results && results.length > 0" class="results">
@@ -34,7 +34,7 @@
 import axios from 'axios';
 
 export default {
-  name: 'Rhymesaurus',
+  name: 'RhymeAdjective',
   data () {
     return {
       results: null,
@@ -49,7 +49,7 @@ export default {
       console.log("hello")
       axios.get('https://api.datamuse.com/words', {
         params: {
-          ml: this.phrase,
+          rel_jbb: this.phrase,
           rel_rhy: this.rhyme
         }
       })
@@ -66,7 +66,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.rhymesaurus {
+.rhyme-adjective {
   font-size: 1.4rem;
 }
 
