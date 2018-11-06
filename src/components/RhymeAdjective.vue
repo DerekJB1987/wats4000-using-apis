@@ -49,7 +49,7 @@ export default {
       console.log("hello")
       axios.get('https://api.datamuse.com/words', {
         params: {
-          rel_jbb: this.phrase,
+          rel_jjb: this.phrase,
           rel_rhy: this.rhyme
         }
       })
